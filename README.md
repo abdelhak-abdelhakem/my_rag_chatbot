@@ -19,7 +19,7 @@ The chatbot:
 ---
 
 ## Project Structure
-
+```
 my_rag_chatbot/
 │
 ├── docs/ # Folder containing your PDF documents
@@ -34,7 +34,7 @@ my_rag_chatbot/
 ├── requirements.txt # Project dependencies
 ├── README.md # Project documentation
 └── .env # API keys (not uploaded for security)
-
+```
 
 ---
 
