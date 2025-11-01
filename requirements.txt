@@ -1,0 +1,14 @@
+langchain_community==0.4.1
+langchain_core==1.0.2
+langchain_huggingface==1.0.0
+langchain_text_splitters==1.0.0
+python-dotenv==1.2.1
+faiss-cpu==1.12.0
+sentence-transformers==5.1.1
+python-dotenv==1.0.1
+pypdf==6.1.1
+PyMuPDF==1.26.5
+
+
+
+

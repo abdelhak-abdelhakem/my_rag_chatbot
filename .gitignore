@@ -1,0 +1,27 @@
+# Python cache & environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+rag_env/
+
+# OS files
+.DS_Store
+
+# FAISS index
+my_faiss_index/
+
+# Jupyter checkpoints (if any)
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Ignore all files inside docs folder
+docs/*
+
+# But keep the folder itself visible
+!docs/.gitkeep
