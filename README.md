@@ -19,7 +19,7 @@ The chatbot:
 ---
 
 ## Project Structure
-
+```
 my_rag_chatbot/
 │
 ├── docs/ # Folder containing your PDF documents
@@ -34,7 +34,7 @@ my_rag_chatbot/
 ├── requirements.txt # Project dependencies
 ├── README.md # Project documentation
 └── .env # API keys (not uploaded for security)
-
+```
 
 ---
 
@@ -95,9 +95,9 @@ Bot: Abdelhak Abdelhakem is a fourth-year AI Engineering student specializing in
 * Basics of integrating LangChain with Hugging Face APIs
 
 ## Author
-**Abdelhak Abdelhakem**
-🎓 AI Engineering Student | Future LLM Engineer
-📍 Algeria
+**Abdelhak Abdelhakem**  
+🎓 AI Engineering Student | Future LLM Engineer  
+📍 Algeria  
 📧 [abdelhakemabdelhak@gmail.com](mailto:abdelhakemabdelhak@gmail.com)  
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/abdelhak-abdelhakem/)
 
