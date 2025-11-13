@@ -29,7 +29,8 @@ my_rag_chatbot/
 │ ├── document_processor.py # Document loading & text splitting
 │ ├── vector_store_manager.py # Vector store creation & persistence
 │ ├── rag_pipeline.py # RAG chain (retriever + LLM)
-│ └── main.py # Entry point (chat loop)
+│ ├── main.py   # CLI chatbot (terminal interface)
+└ |── app.py  # Streamlit chatbot (web interface)
 │
 ├── requirements.txt # Project dependencies
 ├── README.md # Project documentation
