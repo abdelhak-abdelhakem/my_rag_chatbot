@@ -13,8 +13,8 @@ LLM_REPO_ID = "HuggingFaceH4/zephyr-7b-beta"
 LLM_TASK = "conversational"
 
 # --- Text Splitting ---
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 50
+CHUNK_SIZE = 250
+CHUNK_OVERLAP = 30
 
 # --- Retriever ---
 RETRIEVER_K = 3  
