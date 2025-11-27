@@ -1,5 +1,7 @@
 import glob
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyMuPDFLoader
+file_path = "./example_data/layout-parser-paper.pdf"
+loader = PyMuPDFLoader(file_path)
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 def load_and_split_docs( directory_path: str,chunk_size: int,chunk_overlap: int) :
@@ -18,9 +20,12 @@ def load_and_split_docs( directory_path: str,chunk_size: int,chunk_overlap: int)
     # 1. Load Documents
     documents = []
     for file in pdf_files:
-        loader = PyPDFLoader(file)
-        docs = loader.load()
-        documents.extend(docs)
+        try:
+            loader = PyMuPDFLoader(file) 
+            docs = loader.load()
+            documents.extend(docs)
+        except Exception as e:
+            print(f"Error loading {file}: {e}")
     print(f"Loaded {len(documents)} document pages.")
 
     # 2. Split Documents
