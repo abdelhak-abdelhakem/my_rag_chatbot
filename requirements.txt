@@ -1,6 +1,7 @@
 langchain_community==0.4.1
 langchain_core==1.0.2
-langchain_huggingface==1.0.0
+langchain-openai
+langchain_google_genai
 langchain_text_splitters==1.0.0
 python-dotenv==1.2.1
 faiss-cpu==1.12.0
