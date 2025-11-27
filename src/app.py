@@ -1,5 +1,6 @@
 import streamlit as st
 import config  
+import os
 from document_processor import load_and_split_docs
 from vector_store_manager import get_or_create_vector_store
 from rag_pipeline import create_rag_chain
@@ -21,12 +22,19 @@ def load_rag_chain():
     Loads and splits docs, creates the vector store,
     and returns the RAG chain.
     """
-    print("--- Initializing RAG Chain (this should run once) ---")
-    doc_chunks = load_and_split_docs(
-        directory_path=config.PDF_DIRECTORY_PATH,
-        chunk_size=config.CHUNK_SIZE,
-        chunk_overlap=config.CHUNK_OVERLAP
-    )
+    print("--- Initializing RAG Chain  ---")
+    #Check if index exists to skip PDF processing
+    if not os.path.exists(config.FAISS_INDEX_PATH):
+        print("Index not found. Processing documents...")
+        doc_chunks = load_and_split_docs(
+            directory_path=config.PDF_DIRECTORY_PATH,
+            chunk_size=config.CHUNK_SIZE,
+            chunk_overlap=config.CHUNK_OVERLAP
+        )
+    else:
+        print("Existing index found. Skipping document processing.")
+        doc_chunks = [] # We don't need chunks if loading from disk
+
     
     vectorstore = get_or_create_vector_store(
         doc_chunks=doc_chunks

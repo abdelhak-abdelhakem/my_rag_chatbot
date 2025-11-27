@@ -1,18 +1,22 @@
 import config
+import os
 from document_processor import load_and_split_docs
 from vector_store_manager import get_or_create_vector_store
 from rag_pipeline import create_rag_chain
 from langchain_core.messages import HumanMessage, AIMessage
 
 def main():
-    # 1. Load and split documents (only needed if vector store doesn't exist)
-    # We pass the chunks to the next step, which will only use them
-    # if the index needs to be built.
-    doc_chunks = load_and_split_docs(
-        directory_path=config.PDF_DIRECTORY_PATH,
-        chunk_size=config.CHUNK_SIZE,
-        chunk_overlap=config.CHUNK_OVERLAP
-    )
+    # 1. Only load PDFs if the Vector Store doesn't exist yet
+    if not os.path.exists(config.FAISS_INDEX_PATH):
+        print("Index not found. Processing documents...")
+        doc_chunks = load_and_split_docs(
+            directory_path=config.PDF_DIRECTORY_PATH,
+            chunk_size=config.CHUNK_SIZE,
+            chunk_overlap=config.CHUNK_OVERLAP
+        )
+    else:
+        print("Existing index found. Skipping document processing.")
+        doc_chunks = [] # We don't need chunks if loading from disk
 
     # 2. Get or create the vector store (with persistence)
     vectorstore = get_or_create_vector_store(

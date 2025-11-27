@@ -1,6 +1,5 @@
 import os
 from langchain_community.vectorstores import FAISS
-#from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_openai import OpenAIEmbeddings
 import config
 
@@ -10,7 +9,6 @@ def get_or_create_vector_store(doc_chunks) -> FAISS:
     from the document chunks and saves it to disk.
     """
     # Initialize the embedding model
-    #embeddings = HuggingFaceEmbeddings(model_name=embedding_model_name)
     embeddings = OpenAIEmbeddings(
             model=config.EMBEDDING_MODEL_NAME,)
 
