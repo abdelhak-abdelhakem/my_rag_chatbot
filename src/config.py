@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # --- API Keys ---
-HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
+#HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACEHUB_API_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
@@ -21,7 +21,7 @@ CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
 
 # --- Retriever ---
-RETRIEVER_K = 5  
+RETRIEVER_K = 15  
 
 # --- File Paths ---
 PDF_DIRECTORY_PATH = "docs"
