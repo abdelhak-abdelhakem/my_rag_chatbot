@@ -4,9 +4,8 @@ from langchain_core.runnables import RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.messages import HumanMessage, AIMessage
 
-# --- LangChain Hugging Face Integrations ---
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
-
+# --- LangChain Google’s Generative AI models Integrations ---
+from langchain_google_genai import ChatGoogleGenerativeAI
 def format_docs(docs):
     """
     Formats the retrieved documents into a single string.
@@ -29,7 +28,7 @@ def format_chat_history(chat_history):
     
     return "\n".join(formatted)
 
-def create_rag_chain(vectorstore, k_val, llm_repo_id, llm_task, llm_token, llm_max_tokens=256, llm_temp=0.5):
+def create_rag_chain(vectorstore, k_val, google_api_key, llm_model_name, llm_max_tokens=2048, llm_temp=0.0):
     """
     Creates and returns the RAG (Retrieval-Augmented Generation) chain with conversation memory.
     """
@@ -40,35 +39,38 @@ def create_rag_chain(vectorstore, k_val, llm_repo_id, llm_task, llm_token, llm_m
         search_type="similarity",
         search_kwargs={"k": k_val}
     )
-    
-    # 2. Set up the LLM (Zephyr-7B-beta)
-    llm_endpoint = HuggingFaceEndpoint(
-        repo_id=llm_repo_id,
-        task=llm_task,
-        max_new_tokens=llm_max_tokens,
+    # 2. Set up the LLM (Gemini 2.5 Flash)
+    llm = ChatGoogleGenerativeAI(
+        model=llm_model_name,
         temperature=llm_temp,
-        huggingfacehub_api_token=llm_token,
+        max_output_tokens=llm_max_tokens,
+        google_api_key=google_api_key,
     )
-    llm = ChatHuggingFace(llm=llm_endpoint)
-    print("LLM and retriever are ready.")
+
+    print(f"LLM ready: {llm_model_name}")
     
     # 3. Define the Prompt Template with Chat History
-    template = """You are a helpful assistant. Answer the question based on:
-1. The conversation history (MOST IMPORTANT - check this first!)
-2. The retrieved context from documents
-3. Your general knowledge
+    template = """You are UniBot DZ, the specialized AI assistant for Djillali Liabes University.
+Your goal is to provide accurate, administrative, and academic assistance to students.
 
-IMPORTANT: If the answer is in the conversation history, use it! Don't say you don't know if it was mentioned before.
+### INSTRUCTIONS:
+1. **Source of Truth:** Answer strictly based on the "Retrieved Context" below. Do not invent administrative rules, dates, or procedures.
+2. **Uncertainty:** If the answer is not in the context or chat history, strictly state: "I cannot find this information in the official documents provided."
+3. **Formatting:** Use Markdown to make answers readable. Use **bold** for dates/deadlines and bullet points for lists (e.g., required files, modules).
+4. **Language:** Answer in the same language the student used (French, English, or Arabic).
+5. **Tone:** Professional, encouraging, and direct.
 
+### CONTEXT:
 Conversation History:
 {chat_history}
 
-Retrieved Context from Documents:
+Retrieved Official Documents:
 {context}
 
-Current Question: {question}
+### INPUT:
+Student Question: {question}
 
-Answer (keep it concise and natural):"""
+Answer:"""
     
     prompt = PromptTemplate.from_template(template)
     

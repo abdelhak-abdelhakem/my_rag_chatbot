@@ -23,9 +23,8 @@ def main():
     rag_chain = create_rag_chain(
         vectorstore=vectorstore,
         k_val=config.RETRIEVER_K,
-        llm_repo_id=config.LLM_REPO_ID,
-        llm_task=config.LLM_TASK,
-        llm_token=config.HUGGINGFACE_API_TOKEN
+        llm_model_name=config.LLM_MODEL_NAME,
+        google_api_key=config.GOOGLE_API_KEY
     )
     # 4. Initialize conversation history
     chat_history = []
