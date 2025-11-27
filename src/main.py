@@ -16,8 +16,6 @@ def main():
 
     # 2. Get or create the vector store (with persistence)
     vectorstore = get_or_create_vector_store(
-        index_path=config.FAISS_INDEX_PATH,
-        embedding_model_name=config.EMBEDDING_MODEL_NAME,
         doc_chunks=doc_chunks
     )
 
