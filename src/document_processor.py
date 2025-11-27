@@ -1,7 +1,5 @@
 import glob
 from langchain_community.document_loaders import PyMuPDFLoader
-file_path = "./example_data/layout-parser-paper.pdf"
-loader = PyMuPDFLoader(file_path)
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 def load_and_split_docs( directory_path: str,chunk_size: int,chunk_overlap: int) :
