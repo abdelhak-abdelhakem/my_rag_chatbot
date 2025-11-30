@@ -10,7 +10,7 @@ def main():
     if not os.path.exists(config.FAISS_INDEX_PATH):
         print("Index not found. Processing documents...")
         doc_chunks = load_and_split_docs(
-            directory_path=config.PDF_DIRECTORY_PATH,
+            directory_path=config.DIRECTORY_PATH,
             chunk_size=config.CHUNK_SIZE,
             chunk_overlap=config.CHUNK_OVERLAP
         )

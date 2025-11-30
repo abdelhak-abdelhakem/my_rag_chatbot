@@ -24,5 +24,5 @@ CHUNK_OVERLAP = 200
 RETRIEVER_K = 15  
 
 # --- File Paths ---
-PDF_DIRECTORY_PATH = "docs"
+DIRECTORY_PATH = "docs"
 FAISS_INDEX_PATH = "my_faiss_index" # Directory to save/load the index
