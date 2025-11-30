@@ -5,8 +5,8 @@ langchain_google_genai
 langchain_text_splitters==1.0.0
 python-dotenv==1.2.1
 faiss-cpu
-pypdf==6.1.1
 PyMuPDF==1.26.5
+docx2txt
 
 streamlit
 
