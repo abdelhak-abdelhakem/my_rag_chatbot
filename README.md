@@ -36,7 +36,7 @@ my_rag_chatbot/
 ## 🛠️ Installation & Setup
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/abdelhak-abdelhakem/my_rag_chatbot/
 cd my_rag_chatbot
 ```
 ### 2. Create a Virtual Environment
