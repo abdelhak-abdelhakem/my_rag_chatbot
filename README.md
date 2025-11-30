@@ -1,5 +1,10 @@
 # 🎓 UniBot DZ - AI University Assistant
 
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![LangChain](https://img.shields.io/badge/LangChain-RAG-orange)](https://www.langchain.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-UI-red)](https://streamlit.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **UniBot DZ** is a Retrieval-Augmented Generation (RAG) chatbot designed to assist students of **Djillali Liabes University**. It uses official university documents (PDFs) to answer academic and administrative questions accurately.
 
 The bot utilizes **OpenAI** for high-quality text embeddings and **Google Gemini (2.5 Flash)** for fast, intelligent response generation.
