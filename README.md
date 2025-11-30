@@ -3,6 +3,9 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![LangChain](https://img.shields.io/badge/LangChain-RAG-orange)](https://www.langchain.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-UI-red)](https://streamlit.io/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-Embeddings-412991)](https://openai.com/)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-LLM-8E75B2)](https://ai.google.dev/)
+[![FAISS](https://img.shields.io/badge/FAISS-Vector%20DB-0081cb)](https://github.com/facebookresearch/faiss)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **UniBot DZ** is a Retrieval-Augmented Generation (RAG) chatbot designed to assist students of **Djillali Liabes University**. It uses official university documents (PDFs) to answer academic and administrative questions accurately.
